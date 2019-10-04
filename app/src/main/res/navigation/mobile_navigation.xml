@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_searching"
         android:name="sudo.cide.squad.fidobite.ui.searching.SearchingFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_searching"
         tools:layout="@layout/fragment_searching" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="sudo.cide.squad.fidobite.ui.reporting.ReportingFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_reporting"
         tools:layout="@layout/fragment_reporting" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="sudo.cide.squad.fidobite.ui.settings.SettingsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>

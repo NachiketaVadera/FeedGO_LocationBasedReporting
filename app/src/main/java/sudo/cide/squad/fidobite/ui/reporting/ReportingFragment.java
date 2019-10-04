@@ -23,7 +23,7 @@ public class ReportingFragment extends Fragment {
         reportingViewModel =
                 ViewModelProviders.of(this).get(ReportingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_reporting, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
+        final TextView textView = root.findViewById(R.id.text_reporting);
         reportingViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

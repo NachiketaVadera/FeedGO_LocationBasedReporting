@@ -23,7 +23,7 @@ public class SearchingFragment extends Fragment {
         searchingViewModel =
                 ViewModelProviders.of(this).get(SearchingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_searching, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
+        final TextView textView = root.findViewById(R.id.text_searching);
         searchingViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
