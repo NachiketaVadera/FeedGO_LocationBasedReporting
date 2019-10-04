@@ -1,19 +1,25 @@
 package sudo.cide.squad.fidobite.ui.reporting;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class ReportingViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private static double latitude;
+    private static double longitude;
 
-    public ReportingViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+    public double getLatitude() {
+        return latitude;
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void setLatitude(double latitude) {
+        ReportingViewModel.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        ReportingViewModel.longitude = longitude;
     }
 }
