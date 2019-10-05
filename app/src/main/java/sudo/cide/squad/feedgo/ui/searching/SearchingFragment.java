@@ -22,7 +22,7 @@ import java.util.Objects;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import sudo.cide.squad.feedgo.R;
-import sudo.cide.squad.feedgo.ReportStore;
+import sudo.cide.squad.feedgo.util.ReportStore;
 
 public class SearchingFragment extends Fragment implements OnMapReadyCallback {
 

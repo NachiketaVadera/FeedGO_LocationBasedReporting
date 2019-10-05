@@ -1,4 +1,4 @@
-package sudo.cide.squad.feedgo;
+package sudo.cide.squad.feedgo.util;
 
 import java.util.ArrayList;
 
@@ -6,15 +6,15 @@ public class Global {
     private static String userID;
     private static ArrayList<ReportStore> reportStores;
 
-    static String getUserID() {
+    public static String getUserID() {
         return userID;
     }
 
-    static void setUserName(String userName) {
+    public static void setUserName(String userName) {
         Global.userID = userName;
     }
 
-    static void setStoreData(ArrayList<ReportStore> reportStores) {
+    public static void setStoreData(ArrayList<ReportStore> reportStores) {
         Global.reportStores = reportStores;
     }
 

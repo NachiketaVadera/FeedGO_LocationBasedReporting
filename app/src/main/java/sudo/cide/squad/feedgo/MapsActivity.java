@@ -32,6 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import sudo.cide.squad.feedgo.util.Global;
+import sudo.cide.squad.feedgo.util.ReportStore;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 

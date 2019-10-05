@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import pl.charmas.android.reactivelocation2.ReactiveLocationProvider;
+import sudo.cide.squad.feedgo.util.Global;
+import sudo.cide.squad.feedgo.util.ReportStore;
 
 public class MainActivity extends AppCompatActivity {
 

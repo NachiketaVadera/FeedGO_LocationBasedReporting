@@ -1,4 +1,4 @@
-package sudo.cide.squad.feedgo;
+package sudo.cide.squad.feedgo.util;
 
 public class ReportStore {
 
@@ -9,8 +9,8 @@ public class ReportStore {
     private String category;
     private String userID;
 
-    ReportStore(String title, String description, double latitude,
-                double longitude, String category, String userID) {
+    public ReportStore(String title, String description, double latitude,
+                       double longitude, String category, String userID) {
         this.title = title;
         this.description = description;
         this.latitude = latitude;

@@ -1,4 +1,4 @@
-package sudo.cide.squad.feedgo;
+package sudo.cide.squad.feedgo.util;
 
 import android.content.res.AssetManager;
 import android.graphics.Color;
@@ -23,9 +23,9 @@ import su.levenetc.android.textsurface.contants.Direction;
 import su.levenetc.android.textsurface.contants.Pivot;
 import su.levenetc.android.textsurface.contants.Side;
 
-class TextPlayer {
+public class TextPlayer {
 
-    static void play(TextSurface textSurface, AssetManager assetManager) {
+    public static void play(TextSurface textSurface, AssetManager assetManager) {
 
         Typeface fromAsset = Typeface.createFromAsset(assetManager, "fonts/simplicity.ttf");
         Paint paint = new Paint();

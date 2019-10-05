@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import sudo.cide.squad.feedgo.Global;
-import sudo.cide.squad.feedgo.ReportStore;
+import sudo.cide.squad.feedgo.util.Global;
+import sudo.cide.squad.feedgo.util.ReportStore;
 
 public class SearchingViewModel extends ViewModel {
 

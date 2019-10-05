@@ -28,6 +28,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import su.levenetc.android.textsurface.TextSurface;
+import sudo.cide.squad.feedgo.util.Global;
+import sudo.cide.squad.feedgo.util.TextPlayer;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
