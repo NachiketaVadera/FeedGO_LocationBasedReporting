@@ -18,13 +18,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Objects;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import sudo.cide.squad.feedgo.R;
 import sudo.cide.squad.feedgo.ReportStore;
 
 public class SearchingFragment extends Fragment implements OnMapReadyCallback {
 
     private SearchingViewModel searchingViewModel;
-    private MapView mapView;
+    private GoogleMap googleMap;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -32,7 +35,7 @@ public class SearchingFragment extends Fragment implements OnMapReadyCallback {
                 ViewModelProviders.of(this).get(SearchingViewModel.class);
         View view = inflater.inflate(R.layout.fragment_searching, container, false);
 
-        mapView = view.findViewById(R.id.mapView);
+        MapView mapView = view.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
         mapView.onResume();
@@ -51,11 +54,20 @@ public class SearchingFragment extends Fragment implements OnMapReadyCallback {
             googleMap.addMarker(new MarkerOptions()
                     .position(latLng)
                     .title(store.getTitle())
-                    .snippet("Description:\n" + store.getDescription() + "Category:\n" + store.getCategory()));
+                    .snippet("Description:\n" + store.getDescription() + "\nCategory:\n" + store.getCategory()));
             googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                 @Override
                 public void onInfoWindowClick(Marker marker) {
-                    Toast.makeText(getContext(), "Hello, World!", Toast.LENGTH_SHORT).show();
+                    final SweetAlertDialog alertDialog = new SweetAlertDialog(Objects.requireNonNull(getContext()), SweetAlertDialog.NORMAL_TYPE);
+                    alertDialog.setTitle(marker.getTitle());
+                    alertDialog.setContentText(marker.getSnippet());
+                    alertDialog.setConfirmButton("Cool", new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            alertDialog.dismissWithAnimation();
+                        }
+                    });
+                    alertDialog.show();
                 }
             });
         }
