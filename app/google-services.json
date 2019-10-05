@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "515702265241",
+    "firebase_url": "https://feedgo-10.firebaseio.com",
+    "project_id": "feedgo-10",
+    "storage_bucket": "feedgo-10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515702265241:android:064f7cb1730ef553786f08",
+        "android_client_info": {
+          "package_name": "sudo.cide.squad.feedgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515702265241-suu74c5na8bho2lut1p8hrl3p18vfioj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sudo.cide.squad.feedgo",
+            "certificate_hash": "cc7a91ebee880cfad91bd14e1ee6fef18321ca73"
+          }
+        },
+        {
+          "client_id": "515702265241-iev81153ir4l57hjnmpao2hk7jch6qcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOsxdIKu_dtw40GpX53hpWnjZ1bVA-PPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515702265241-iev81153ir4l57hjnmpao2hk7jch6qcg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

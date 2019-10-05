@@ -1,4 +1,4 @@
-package sudo.cide.squad.fidobite.ui.settings;
+package sudo.cide.squad.feedgo.ui.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import sudo.cide.squad.fidobite.R;
+import sudo.cide.squad.feedgo.R;
 
 public class SettingsFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package sudo.cide.squad.fidobite;
+package sudo.cide.squad.feedgo;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +18,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.DialogPlusBuilder;
 import com.orhanobut.dialogplus.OnClickListener;
@@ -35,12 +37,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static String title;
     private static String description;
     private static String choice;
+
+    private DocumentReference firestore;
     private Marker marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        firestore = FirebaseFirestore.getInstance().document("/");
 
         findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +141,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 description = etDesc.getText().toString();
                 choice = spChoice.getSelectedItem().toString();
                 marker.setTitle(title);
-                marker.setSnippet("Descreption:\n" + description + "\nCategory:" + choice);
+                marker.setSnippet("Description:\n" + description + "\nCategory:" + choice);
                 marker.showInfoWindow();
                 changeDialog.dismiss();
             }

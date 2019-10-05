@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "sudo.cide.squad.fidobite"
+        applicationId "sudo.cide.squad.feedgo"
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
@@ -26,6 +26,10 @@ dependencies {
     implementation 'pl.charmas.android:android-reactive-location2:2.1@aar'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
     implementation 'com.orhanobut:dialogplus:1.11@aar'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'com.google.firebase:firebase-firestore:21.1.1'
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -38,3 +42,4 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+apply plugin: 'com.google.gms.google-services'

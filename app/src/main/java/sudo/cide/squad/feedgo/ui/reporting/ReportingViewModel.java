@@ -1,4 +1,4 @@
-package sudo.cide.squad.fidobite.ui.reporting;
+package sudo.cide.squad.feedgo.ui.reporting;
 
 import androidx.lifecycle.ViewModel;
 

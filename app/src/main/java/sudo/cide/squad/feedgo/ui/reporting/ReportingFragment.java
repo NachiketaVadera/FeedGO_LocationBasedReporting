@@ -1,4 +1,4 @@
-package sudo.cide.squad.fidobite.ui.reporting;
+package sudo.cide.squad.feedgo.ui.reporting;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import sudo.cide.squad.fidobite.MapsActivity;
-import sudo.cide.squad.fidobite.R;
+import sudo.cide.squad.feedgo.MapsActivity;
+import sudo.cide.squad.feedgo.R;
 
 public class ReportingFragment extends Fragment {
 

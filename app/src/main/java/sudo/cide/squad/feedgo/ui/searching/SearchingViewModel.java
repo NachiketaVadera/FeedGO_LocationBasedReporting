@@ -1,16 +1,16 @@
-package sudo.cide.squad.fidobite.ui.settings;
+package sudo.cide.squad.feedgo.ui.searching;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SettingsViewModel extends ViewModel {
+public class SearchingViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SettingsViewModel() {
+    public SearchingViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is settings fragment");
+        mText.setValue("This is searching fragment");
     }
 
     public LiveData<String> getText() {

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_searching"
-        android:name="sudo.cide.squad.fidobite.ui.searching.SearchingFragment"
+        android:name="sudo.cide.squad.feedgo.ui.searching.SearchingFragment"
         android:label="@string/title_searching"
         tools:layout="@layout/fragment_searching" />
 
     <fragment
         android:id="@+id/navigation_reporting"
-        android:name="sudo.cide.squad.fidobite.ui.reporting.ReportingFragment"
+        android:name="sudo.cide.squad.feedgo.ui.reporting.ReportingFragment"
         android:label="@string/title_reporting"
         tools:layout="@layout/fragment_reporting" />
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="sudo.cide.squad.fidobite.ui.settings.SettingsFragment"
+        android:name="sudo.cide.squad.feedgo.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>
