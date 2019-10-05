@@ -27,7 +27,6 @@ import sudo.cide.squad.feedgo.ReportStore;
 public class SearchingFragment extends Fragment implements OnMapReadyCallback {
 
     private SearchingViewModel searchingViewModel;
-    private GoogleMap googleMap;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ public class SearchingFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        googleMap.setMyLocationEnabled(true);
         LatLng latLng = null;
         int count = 0;
         for (ReportStore store : searchingViewModel.getReportStores()) {

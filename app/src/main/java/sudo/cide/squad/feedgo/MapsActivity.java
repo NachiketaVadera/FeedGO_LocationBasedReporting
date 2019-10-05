@@ -113,6 +113,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        googleMap.setMyLocationEnabled(true);
         LatLng userLocation = new LatLng(MainActivity.latitude, MainActivity.longitude);
         marker = googleMap.addMarker(new MarkerOptions()
                 .position(userLocation)
@@ -142,7 +143,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_spinner_item,
+                android.R.layout.simple_spinner_dropdown_item,
                 spinnerArray
         );
 
