@@ -13,4 +13,8 @@
     </string-array>
     <string name="title_activity_maps">Map</string>
     <string name="submit_button_text">Check Report</string>
+    <string name="submit_dialog_button_text">Done with Changes</string>
+    <string name="text_change">Change</string>
+    <string name="text_confirm">Confirm</string>
+    <string name="change_button_text">Change Report</string>
 </resources>

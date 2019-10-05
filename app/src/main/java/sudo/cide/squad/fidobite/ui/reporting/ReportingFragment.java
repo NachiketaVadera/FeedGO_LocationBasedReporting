@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import sudo.cide.squad.fidobite.MainActivity;
 import sudo.cide.squad.fidobite.MapsActivity;
 import sudo.cide.squad.fidobite.R;
 
@@ -23,9 +22,6 @@ public class ReportingFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final ReportingViewModel reportingViewModel = ViewModelProviders.of(this).get(ReportingViewModel.class);
-
-        reportingViewModel.setLatitude(MainActivity.latitude);
-        reportingViewModel.setLongitude(MainActivity.longitude);
 
         View view = inflater.inflate(R.layout.fragment_reporting, container, false);
         Button button = view.findViewById(R.id.btn_check);
@@ -43,8 +39,6 @@ public class ReportingFragment extends Fragment {
 
                 Intent toMapActivity = new Intent(getContext(), MapsActivity.class);
 
-                toMapActivity.putExtra("lat", reportingViewModel.getLatitude());
-                toMapActivity.putExtra("lng", reportingViewModel.getLongitude());
                 toMapActivity.putExtra("title", title);
                 toMapActivity.putExtra("desc", description);
                 toMapActivity.putExtra("choice", selectedItem);

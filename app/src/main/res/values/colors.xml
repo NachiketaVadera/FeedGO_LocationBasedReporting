@@ -7,4 +7,5 @@
     <color name="background">#313233</color>
     <color name="background_ok_button">#7700FF00</color>
     <color name="transparent">#00000000</color>
+    <color name="cherry">#77FF0000</color>
 </resources>

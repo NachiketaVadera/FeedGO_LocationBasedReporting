@@ -25,7 +25,7 @@ dependencies {
     implementation 'com.github.f0ris.sweetalert:library:1.5.1'
     implementation 'pl.charmas.android:android-reactive-location2:2.1@aar'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
-    implementation 'com.afollestad.material-dialogs:core:3.1.1'
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
