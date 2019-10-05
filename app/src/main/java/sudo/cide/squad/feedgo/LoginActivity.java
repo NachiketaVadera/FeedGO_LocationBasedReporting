@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (currentUser != null) {
             Toast.makeText(this, "Signed In as " + currentUser.getDisplayName(), Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
+            Global.setUserName(currentUser.getDisplayName());
         }
     }
 

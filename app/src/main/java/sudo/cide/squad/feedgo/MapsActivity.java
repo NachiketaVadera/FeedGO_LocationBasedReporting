@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -17,6 +18,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -46,7 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        firestore = FirebaseFirestore.getInstance().document("/");
+        firestore = FirebaseFirestore.getInstance().document("data/" + Global.getUserName());
 
         findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +68,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                         dialog.dismissWithAnimation();
-                        // upload data to Firebase
+                        ReportStore store = new ReportStore(title, description, MainActivity.latitude,
+                                MainActivity.longitude, choice);
+                        firestore.collection("users")
+                                .add(store)
+                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    @Override
+                                    public void onSuccess(DocumentReference documentReference) {
+                                        Log.i(TAG, "onSuccess: Data stored successfully with " + documentReference.getId());
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.e(TAG, "onFailure: store attempt failed", e);
+                                    }
+                                });
                     }
                 });
                 dialog.setCancelButton("Nah, change.", new SweetAlertDialog.OnSweetClickListener() {
@@ -98,7 +116,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         marker = googleMap.addMarker(new MarkerOptions()
                 .position(userLocation)
                 .title(title)
-                .snippet("Descreption:\n" + description + "\nCategory:" + choice));
+                .snippet("Description:\n" + description + "\nCategory:" + choice));
         marker.showInfoWindow();
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(userLocation));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 18f));
@@ -121,7 +139,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         spinnerArray.add("Danger");
         spinnerArray.add("Interesting Place");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_item,
                 spinnerArray
