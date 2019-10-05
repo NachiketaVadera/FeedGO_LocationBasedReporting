@@ -49,7 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        firestore = FirebaseFirestore.getInstance().document("data/" + Global.getUserName());
+        firestore = FirebaseFirestore.getInstance().document("app/store");
 
         findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +69,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                         dialog.dismissWithAnimation();
                         ReportStore store = new ReportStore(title, description, MainActivity.latitude,
-                                MainActivity.longitude, choice);
-                        firestore.collection("users")
+                                MainActivity.longitude, choice, Global.getUserID());
+                        firestore.collection("data")
                                 .add(store)
                                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                     @Override
                                     public void onSuccess(DocumentReference documentReference) {
                                         Log.i(TAG, "onSuccess: Data stored successfully with " + documentReference.getId());
+                                        finish();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {

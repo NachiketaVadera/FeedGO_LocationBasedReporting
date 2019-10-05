@@ -7,14 +7,20 @@ public class ReportStore {
     private double latitude;
     private double longitude;
     private String category;
+    private String userID;
 
     ReportStore(String title, String description, double latitude,
-                double longitude, String category) {
+                double longitude, String category, String userID) {
         this.title = title;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
         this.category = category;
+        this.userID = userID;
+    }
+
+    ReportStore() {
+        // No argument constructor
     }
 
     public double getLongitude() {
@@ -35,5 +41,9 @@ public class ReportStore {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 }

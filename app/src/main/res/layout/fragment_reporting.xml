@@ -46,7 +46,7 @@
             android:fontFamily="monospace"
             android:hint="@string/hint_desc"
             android:importantForAutofill="no"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:scrollHorizontally="false"
             android:textSize="20sp"
             tools:ignore="LabelFor" />

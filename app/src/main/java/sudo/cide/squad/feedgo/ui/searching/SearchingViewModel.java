@@ -1,19 +1,21 @@
 package sudo.cide.squad.feedgo.ui.searching;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import java.util.ArrayList;
+
+import sudo.cide.squad.feedgo.Global;
+import sudo.cide.squad.feedgo.ReportStore;
 
 public class SearchingViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private ArrayList<ReportStore> reportStores;
 
     public SearchingViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is searching fragment");
+        reportStores = Global.getReportStores();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public ArrayList<ReportStore> getReportStores() {
+        return reportStores;
     }
 }

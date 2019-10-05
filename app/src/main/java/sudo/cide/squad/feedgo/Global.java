@@ -1,13 +1,24 @@
 package sudo.cide.squad.feedgo;
 
-class Global {
-    private static String userName;
+import java.util.ArrayList;
 
-    static String getUserName() {
-        return userName;
+public class Global {
+    private static String userID;
+    private static ArrayList<ReportStore> reportStores;
+
+    static String getUserID() {
+        return userID;
     }
 
     static void setUserName(String userName) {
-        Global.userName = userName;
+        Global.userID = userName;
+    }
+
+    static void setStoreData(ArrayList<ReportStore> reportStores) {
+        Global.reportStores = reportStores;
+    }
+
+    public static ArrayList<ReportStore> getReportStores() {
+        return reportStores;
     }
 }
