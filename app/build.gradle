@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "sudo.cide.squad.feedgo"
         minSdkVersion 26
-        targetSdkVersion 29
+        targetSdkVersion 27
         versionCode 1
         versionName "alpha-0.0.1_fido_baby"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -30,6 +30,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:21.1.1'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.github.elevenetc:textsurface:0.9.1'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'

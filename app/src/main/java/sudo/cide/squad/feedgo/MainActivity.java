@@ -20,8 +20,6 @@ import pl.charmas.android.reactivelocation2.ReactiveLocationProvider;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int REQUEST_CODE = 9001;
-
     public static double latitude;
     public static double longitude;
 

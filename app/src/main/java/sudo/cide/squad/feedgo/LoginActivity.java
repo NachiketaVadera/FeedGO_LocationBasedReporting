@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import su.levenetc.android.textsurface.TextSurface;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "__FeedGO__";
@@ -44,6 +47,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
+        }
+
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            final TextSurface textSurface = findViewById(R.id.textSurface);
+            textSurface.reset();
+            Log.i(TAG, "calling TextSurface.play()");
+            TextPlayer.play(textSurface, getAssets());
+
+            textSurface.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textSurface.reset();
+                    TextPlayer.play(textSurface, getAssets());
+                }
+            });
         }
 
         findViewById(R.id.signInButton).setOnClickListener(this);
@@ -121,5 +139,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (v.getId() == R.id.signInButton) {
             signIn();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            startActivity(new Intent(this, MainActivity.class));
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
