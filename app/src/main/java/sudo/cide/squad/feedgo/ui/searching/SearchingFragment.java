@@ -82,6 +82,7 @@ public class SearchingFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        Toast.makeText(getContext(), "Map", Toast.LENGTH_SHORT).show();
         gMap = googleMap;
         googleMap.setMyLocationEnabled(true);
         int count = 0;
