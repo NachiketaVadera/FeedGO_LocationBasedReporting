@@ -18,4 +18,14 @@
     <string name="text_confirm">Confirm</string>
     <string name="change_button_text">Change Report</string>
     <string name="text_sign_out">Sign Out</string>
+    <string name="unknown_geofence_error">Unknown Error</string>
+    <string name="geofence_not_available">Geofence Not Available</string>
+    <string name="geofence_too_many_geofences">Geofence Limit Exceed</string>
+    <string name="geofence_too_many_pending_intents">Too many panding intents</string>
+    <string name="geofence_transition_invalid_type">Invalid Transition</string>
+    <string name="geofence_transition_notification_text">Entered | Exited</string>
+    <string name="geofence_transition_entered">Entered</string>
+    <string name="geofence_transition_exited">Exited</string>
+    <string name="unknown_geofence_transition">Transition</string>
+    <string name="title_search_rad">Search Radius in Meters</string>
 </resources>

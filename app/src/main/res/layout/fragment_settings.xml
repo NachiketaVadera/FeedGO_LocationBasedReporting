@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -18,6 +19,29 @@
             android:background="@color/cherry"
             android:fontFamily="monospace"
             android:text="@string/text_sign_out" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_search_rad"
+        android:textColor="#EAEAEA"
+        android:textSize="25sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp">
+
+        <SeekBar
+            android:id="@+id/skbr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="5000"
+            android:min="50" />
 
     </androidx.cardview.widget.CardView>
 

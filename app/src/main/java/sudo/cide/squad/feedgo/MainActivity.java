@@ -21,8 +21,10 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.tapadoo.alerter.Alerter;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -63,22 +65,27 @@ public class MainActivity extends AppCompatActivity {
         ReactiveLocationProvider locationProvider = new ReactiveLocationProvider(getApplicationContext());
         ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION);
 
-        CollectionReference reference = firestore.collection("app").document("store").collection("data");
-        reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        new Thread(new Runnable() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        ReportStore store = document.toObject(ReportStore.class);
-                        reportStores.add(store);
-                        Log.i(TAG, document.getId() + " => " + document.getData());
+            public void run() {
+                CollectionReference reference = firestore.collection("app").document("store").collection("data");
+                reference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
+                                ReportStore store = document.toObject(ReportStore.class);
+                                reportStores.add(store);
+                                Log.i(TAG, document.getId() + " => " + document.getData());
+                            }
+                            Global.setStoreData(reportStores);
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
                     }
-                    Global.setStoreData(reportStores);
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.getException());
-                }
+                });
             }
-        });
+        }).start();
 
         Disposable subscription = locationProvider.getUpdatedLocation(request).subscribe(new Consumer<Location>() {
             @Override
@@ -86,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
                 latitude = location.getLatitude();
                 longitude = location.getLongitude();
                 //Toast.makeText(MainActivity.this, latitude + "\n" + longitude, Toast.LENGTH_SHORT).show();
+                if (Global.isInRadius()) {
+                    Alerter.create(MainActivity.this)
+                            .setTitle(Global.getGeofenceStore().getCategory())
+                            .setText("Alert! Multiple reports of " + Global.getGeofenceStore().getCategory() +
+                                    "Here is one of them: " +
+                                    Global.getGeofenceStore().getTitle() + "\n" + Global.getGeofenceStore().getDescription())
+                            .show();
+                }
             }
         });
     }

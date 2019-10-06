@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':pathsense-android-sdk-location-bundle-release-4.0.0.0'
 rootProject.name='Fidobite_LocationBasedReporting'
